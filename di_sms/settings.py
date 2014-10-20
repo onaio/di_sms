@@ -189,11 +189,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     # External apps
-    "django_nose",
     # "djtables",  # required by rapidsms.contrib.locations
     "django_tables2",
     "selectable",
     "south",
+    "django_nose",
     # RapidSMS
     "rapidsms",
     "rapidsms.backends.database",
@@ -217,3 +217,5 @@ RAPIDSMS_HANDLERS = (
     "di_sms.handlers.help.HelpHandler",
     "di_sms.handlers.question.QuestionHandler",
 )
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
