@@ -214,4 +214,5 @@ INSTALLED_BACKENDS = {
 LOGIN_REDIRECT_URL = '/'
 
 RAPIDSMS_HANDLERS = (
+    "di_sms.handlers.help.HelpHandler",
 )
