@@ -1,0 +1,4 @@
+-r base.pip
+coverage
+flake8
+nose
