@@ -1,4 +1,4 @@
-image: ponaio/python:2.7
+image: onaio/python:2.7
 services:
     - onaio/postgis
 script:

@@ -23,12 +23,11 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'di_sms.db',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'di_sms',
+        'USER': 'di_sms',
+        'PASSWORD': 'di_sms',
+        'HOST': '127.0.0.1',
     }
 }
 
