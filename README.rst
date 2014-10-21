@@ -49,7 +49,7 @@ SMSSync Setup
   include the trailing ``/``.
 - Add ``secret key`` as ``ona``.
 - Tap ``OK`` to save the entry
-- `Enable Task Checking` and set ``Frequency`` in settings
+- ``Enable Task Checking`` and set ``Frequency`` in settings
 
 
 .. _SMSSync: http://smssync.ushahidi.com
