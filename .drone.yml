@@ -2,8 +2,7 @@ image: onaio/python:2.7
 services:
     - onaio/postgis
 script:
-    - psql -c "CREATE USER di_sms WITH PASSWORD 'di_sms';" -h 127.0.0.1 -U postgres postgres
+    - psql -c "CREATE USER di_sms WITH SUPERUSER PASSWORD 'di_sms';" -h 127.0.0.1 -U postgres postgres
     - psql -c "CREATE DATABASE di_sms OWNER di_sms;" -h 127.0.0.1 -U postgres postgres
-    - psql -c "CREATE DATABASE test_di_sms OWNER di_sms;" -h 127.0.0.1 -U postgres postgres
     - pip install -qr requirements/dev.pip
-    - python manage.py test --nose-verbosity=3 --with-coverage
+    - python manage.py test --nose-verbosity=3 --with-coverage --cover-package=di_sms --noinput
