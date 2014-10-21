@@ -39,3 +39,17 @@ Run syncdb::
 You should now be able to run the development server::
 
     python manage.py runserver
+
+
+SMSSync Setup
+-------------
+
+- Install _SMSSync
+- Add `Sync URL` as `http://server_url/backend/smssync/`, do not forget to
+  include the trailing `/`.
+- Add `secret key` as `ona`.
+- Tap `OK` to save the entry
+- `Enable Task Checking` and set `Frequency` in settings
+
+
+.. _SMSSync: http://smssync.ushahidi.com
