@@ -209,6 +209,9 @@ INSTALLED_BACKENDS = {
     "message_tester": {
         "ENGINE": "rapidsms.backends.database.DatabaseBackend",
     },
+    "smssync": {
+        "ENGINE": "rapidsms.backends.database.DatabaseBackend",
+    }
 }
 
 LOGIN_REDIRECT_URL = '/'
