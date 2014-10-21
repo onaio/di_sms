@@ -1,11 +1,12 @@
+from django.utils.translation import ugettext as _
 from rapidsms.contrib.handlers import PatternHandler
 
 
 class QuestionHandler(PatternHandler):
-    pattern = r'^q(\d+) (.*)$'
+    pattern = r'^#(\d+) (.*)$'
 
     def handle(self, question, answer):
         self.respond(
-            u"You responded to question number {}, your answer was \"{}\"."
+            _(u"You responded to question number {}, your answer was \"{}\".")
             .format(question, answer)
         )

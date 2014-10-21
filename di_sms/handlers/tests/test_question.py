@@ -10,7 +10,7 @@ class TestHelpHandler(RapidTest):
 
     def test_dispatch(self):
         response = 'You responded to question number 1, your answer was "y".'
-        msg = IncomingMessage(self.connection, "q1 y")
+        msg = IncomingMessage(self.connection, "#1 y")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
         self.assertEqual(len(msg.responses), 1)
