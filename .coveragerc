@@ -1,0 +1,4 @@
+[run]
+source = di_sms
+omit = */tests*,*/migrations/*,*/south_migrations/*,*/local_settings*,di_sms/settings*
+
