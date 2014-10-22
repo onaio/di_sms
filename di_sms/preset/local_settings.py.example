@@ -1,0 +1,14 @@
+from di_sms.settings import *  # noqa
+
+SECRET_KEY = 'REPLACE_SECRET_KEY'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'REPLACE_DATABASE_NAME',
+        'USER': 'REPLACE_DATABASE_USER',
+        'PASSWORD': 'REPLACE_DATABASE_PASSWORD',
+        'HOST': 'REPLACE_DATABASE_HOST',
+        'PORT': 'REPLACE_DATABASE_PORT',
+    }
+}
