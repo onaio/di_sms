@@ -9,8 +9,15 @@ class TestHelpHandler(RapidTest):
         self.connection = self.create_connection()
 
     def test_dispatch(self):
-        response = 'You responded to question number 1, your answer was "y".'
+        response = 'You responded to 1 question(s).'
         msg = IncomingMessage(self.connection, "#1 y")
+        retVal = QuestionHandler.dispatch(self.router, msg)
+        self.assertTrue(retVal)
+        self.assertEqual(len(msg.responses), 1)
+        self.assertEqual(msg.responses[0]['text'], response)
+
+        response = 'You responded to 2 question(s).'
+        msg = IncomingMessage(self.connection, "#1 y #34 n")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
         self.assertEqual(len(msg.responses), 1)
