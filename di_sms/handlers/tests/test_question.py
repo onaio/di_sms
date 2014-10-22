@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import os
 
 from django.core.management import call_command
@@ -28,7 +30,7 @@ class TestHelpHandler(RapidTest):
     def test_dispatch_question(self):
         count = Answer.objects.count()
         self._load_questions_fixture()
-        response = 'You responded to question(s): 1.'
+        response = 'Vous avez répondu à la/les question(s): 1.'
         msg = IncomingMessage(self.connection, "#1 y")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
@@ -36,7 +38,7 @@ class TestHelpHandler(RapidTest):
         self.assertEqual(msg.responses[0]['text'], response)
         self.assertEqual(count + 1, Answer.objects.count())
 
-        response = 'You responded to question(s): 1,3.'
+        response = 'Vous avez répondu à la/les question(s): 1,3.'
         msg = IncomingMessage(self.connection, "#1 y #3 N")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
@@ -44,7 +46,7 @@ class TestHelpHandler(RapidTest):
         self.assertEqual(msg.responses[0]['text'], response)
         self.assertEqual(count + 2, Answer.objects.count())
 
-        response = 'Unknown question number 34.'
+        response = 'Inconnu numéro de la question 34.'
         msg = IncomingMessage(self.connection, "#1 y #34 n")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
@@ -53,15 +55,15 @@ class TestHelpHandler(RapidTest):
         self.assertEqual(count + 2, Answer.objects.count())
 
     def test_dispatch_unknown_question(self):
-        response = 'Unknown question number 1.'
+        response = 'Inconnu numéro de la question 1.'
         msg = IncomingMessage(self.connection, "#1 y")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
         self.assertEqual(len(msg.responses), 1)
         self.assertEqual(msg.responses[0]['text'], response)
 
-        response = 'Unknown question number 1.'
-        response += ' Unknown question number 34.'
+        response = 'Inconnu numéro de la question 1.'
+        response += ' Inconnu numéro de la question 34.'
         msg = IncomingMessage(self.connection, "#1 y #34 n")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)

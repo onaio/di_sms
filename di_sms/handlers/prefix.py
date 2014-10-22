@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import re
 
 from django.utils.translation import ugettext as _
@@ -11,7 +13,8 @@ class PrefixHandler(BaseHandler):
 
     def handle(self, question, answer):
         self.respond(
-            _(u"You responded to question number {}, your answer was \"{}\".")
+            _(u"Vous avez répondu à la question numéro {}, votre réponse "
+                "était \"{}\".")
             .format(question, answer)
         )
 

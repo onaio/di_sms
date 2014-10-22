@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import re
 
 from django.utils.translation import ugettext as _
@@ -19,7 +21,7 @@ class QuestionHandler(PrefixHandler):
                 responses.append(str(question.pk))
 
             self.respond(
-                _(u"You responded to question(s): {}.").format(
+                _(u"Vous avez répondu à la/les question(s): {}.").format(
                     u','.join(responses))
             )
         else:
@@ -51,11 +53,11 @@ class QuestionHandler(PrefixHandler):
                 question = Question.objects.get(number=question)
             except Question.DoesNotExist:
                 raise ValueError(
-                    _("Unknown question number {}.").format(question))
+                    _("Inconnu numéro de la question {}.").format(question))
             else:
                 return question, answer
 
-        raise HandlerError(_("Unknown question answer {}.").format(text))
+        raise HandlerError(_("Inconnu numéro de la question {}.").format(text))
 
     def _save_answer(self, question, answer):
         if not self.msg.connections:
