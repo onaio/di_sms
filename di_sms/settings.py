@@ -191,6 +191,7 @@ INSTALLED_APPS = (
     # "djtables",  # required by rapidsms.contrib.locations
     "django_tables2",
     "selectable",
+    "reversion",
     "south",
     "django_nose",
     # RapidSMS
