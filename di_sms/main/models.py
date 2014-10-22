@@ -19,8 +19,9 @@ class Question(models.Model):
         (NUMBER, "Number")
     )
 
+    number = models.IntegerField(unique=True)
+    section = models.ForeignKey('Section')
     question = models.TextField()
-    number = models.IntegerField()
     question_type = models.CharField(max_length=3,
                                      choices=QUESTION_TYPE_CHOICES)
 
@@ -32,10 +33,9 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
-    section = models.ForeignKey('Section')
     question = models.ForeignKey('Question')
     answer = models.CharField(max_length=255)
-    phone_number = models.CharField(max_length=100)
+    contact = models.ForeignKey('rapidsms.Contact')
 
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
