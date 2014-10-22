@@ -8,15 +8,16 @@ class TestHelpHandler(RapidTest):
     def setUp(self):
         self.connection = self.create_connection()
 
-    def test_dispatch(self):
-        response = 'You responded to 1 question(s).'
+    def test_dispatch_unknown_question(self):
+        response = 'Unknown question number 1.'
         msg = IncomingMessage(self.connection, "#1 y")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
         self.assertEqual(len(msg.responses), 1)
         self.assertEqual(msg.responses[0]['text'], response)
 
-        response = 'You responded to 2 question(s).'
+        response = 'Unknown question number 1.'
+        response += ' Unknown question number 34.'
         msg = IncomingMessage(self.connection, "#1 y #34 n")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
