@@ -13,11 +13,14 @@ class QuestionHandler(PrefixHandler):
 
     def handle(self, answers):
         if self._valid_questions(answers):
-            for answer in self.question_answers:
-                self._save_answer(*answer)
+            responses = []
+            for question, answer in self.question_answers:
+                self._save_answer(question, answer)
+                responses.append(str(question.pk))
 
             self.respond(
-                _(u"You responded to {} question(s).").format(len(answers))
+                _(u"You responded to question(s): {}.").format(
+                    u','.join(responses))
             )
         else:
             self.respond(u' '.join(self._errors))
@@ -58,7 +61,7 @@ class QuestionHandler(PrefixHandler):
         if not self.msg.connections:
             raise ValueError
 
-        contact = self.msg.connections[0].contact
+        phone_number = self.msg.connections.identity
 
         Answer.objects.get_or_create(
-            contact=contact, question=question, answer=answer)
+            phone_number=phone_number, question=question, answer=answer)
