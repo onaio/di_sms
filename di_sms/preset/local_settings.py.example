@@ -1,6 +1,5 @@
 from di_sms.settings import *  # noqa
 
-SECRET_KEY = 'REPLACE_SECRET_KEY'
 
 DATABASES = {
     'default': {
@@ -12,3 +11,7 @@ DATABASES = {
         'PORT': 'REPLACE_DATABASE_PORT',
     }
 }
+
+SECRET_KEY = 'REPLACE_SECRET_KEY'
+
+TIMEZONE = 'Africa/Tunis'
