@@ -33,8 +33,8 @@ class Migration(SchemaMigration):
         db.create_table(u'main_answer', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('question', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['main.Question'])),
-            ('answer', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('contact', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['rapidsms.Contact'])),
+            ('answer', self.gf('django.db.models.fields.CharField')(max_length=255, db_index=True)),
+            ('phone_number', self.gf('django.db.models.fields.CharField')(max_length=100, db_index=True)),
             ('date_created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
             ('date_modified', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
         ))
@@ -55,11 +55,11 @@ class Migration(SchemaMigration):
     models = {
         u'main.answer': {
             'Meta': {'object_name': 'Answer'},
-            'answer': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
-            'contact': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['rapidsms.Contact']"}),
+            'answer': ('django.db.models.fields.CharField', [], {'max_length': '255', 'db_index': 'True'}),
             'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'date_modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'phone_number': ('django.db.models.fields.CharField', [], {'max_length': '100', 'db_index': 'True'}),
             'question': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['main.Question']"})
         },
         u'main.question': {
@@ -78,14 +78,6 @@ class Migration(SchemaMigration):
             'date_modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '255'})
-        },
-        u'rapidsms.contact': {
-            'Meta': {'object_name': 'Contact'},
-            'created_on': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'language': ('django.db.models.fields.CharField', [], {'max_length': '6', 'blank': 'True'}),
-            'modified_on': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100', 'blank': 'True'})
         }
     }
 
