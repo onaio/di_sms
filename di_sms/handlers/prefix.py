@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import re
 
-from django.utils.translation import ugettext as _
 from rapidsms.contrib.handlers import BaseHandler
 from rapidsms.contrib.handlers.exceptions import HandlerError
 
@@ -11,12 +10,8 @@ class PrefixHandler(BaseHandler):
     prefix = None
     pattern = r'%(prefix)s\s?(\w+.*?)(?=\s*%(prefix)s|$)'
 
-    def handle(self, question, answer):
-        self.respond(
-            _(u"Vous avez répondu à la question numéro {}, votre réponse "
-              u"était \"{}\".")
-            .format(question, answer)
-        )
+    def handle(self, answers):
+        raise NotImplementedError
 
     @classmethod
     def _pattern(cls):
