@@ -14,7 +14,7 @@ class PrefixHandler(BaseHandler):
     def handle(self, question, answer):
         self.respond(
             _(u"Vous avez répondu à la question numéro {}, votre réponse "
-                "était \"{}\".")
+              u"était \"{}\".")
             .format(question, answer)
         )
 

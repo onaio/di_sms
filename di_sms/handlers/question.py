@@ -9,6 +9,8 @@ from di_sms.handlers.prefix import PrefixHandler
 from di_sms.main.models import Answer
 from di_sms.main.models import Question
 
+YES_NO_REGEX = re.compile('([ynmYNoO0])', re.IGNORECASE)
+
 
 class QuestionHandler(PrefixHandler):
     prefix = '#'
@@ -53,11 +55,17 @@ class QuestionHandler(PrefixHandler):
                 question = Question.objects.get(number=question)
             except Question.DoesNotExist:
                 raise ValueError(
-                    _("Inconnu numéro de la question {}.").format(question))
+                    _(u"Inconnu numéro de la question {}.").format(question))
             else:
+                if question.question_type == Question.YES_NO:
+                    if not YES_NO_REGEX.match(answer):
+                        raise ValueError(
+                            _(u"Inconnu numéro de la answer {}.")
+                            .format(answer))
                 return question, answer
 
-        raise HandlerError(_("Inconnu numéro de la question {}.").format(text))
+        raise HandlerError(
+            _(u"Inconnu numéro de la question {}.").format(text))
 
     def _save_answer(self, question, answer):
         if not self.msg.connections:
