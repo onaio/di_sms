@@ -10,6 +10,7 @@ from rapidsms.tests.harness import RapidTest
 from di_sms.handlers.question import QuestionHandler
 from di_sms.main import tests as main_tests
 from di_sms.main.models import Answer
+from di_sms.main.models import Question
 
 
 class TestHelpHandler(RapidTest):
@@ -37,6 +38,7 @@ class TestHelpHandler(RapidTest):
         self.assertEqual(len(msg.responses), 1)
         self.assertEqual(msg.responses[0]['text'], response)
         self.assertEqual(count + 1, Answer.objects.count())
+        self.assertEqual(Answer.objects.all()[0].answer, Question.YES)
 
         response = u'Vous avez répondu à la/les question(s): 1,3.'
         msg = IncomingMessage(self.connections, "#1 y #3 N")
@@ -45,6 +47,7 @@ class TestHelpHandler(RapidTest):
         self.assertEqual(len(msg.responses), 1)
         self.assertEqual(msg.responses[0]['text'], response)
         self.assertEqual(count + 2, Answer.objects.count())
+        self.assertEqual(Answer.objects.all()[1].answer, Question.NO)
 
         response = u'Inconnu numéro de la question 34.'
         msg = IncomingMessage(self.connections, "#1 y #34 n")

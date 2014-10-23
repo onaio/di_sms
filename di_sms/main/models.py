@@ -13,6 +13,8 @@ class Section(models.Model):
 
 class Question(models.Model):
     YES_NO = "YN"
+    YES = 'yes'
+    NO = 'no'
     TEXT = "TXT"
     NUMBER = "N"
 

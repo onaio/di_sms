@@ -16,7 +16,8 @@ from di_sms.main.models import Answer
 from di_sms.main.models import Question
 from di_sms.main.utils import make_ona_submission
 
-YES_NO_REGEX = re.compile('([ynmYNoO0])', re.IGNORECASE)
+YES_NO_REGEX = re.compile('([ynYN])', re.IGNORECASE)
+YES_REGEX = re.compile('([yY])', re.IGNORECASE)
 
 
 class QuestionHandler(PrefixHandler):
@@ -74,6 +75,12 @@ class QuestionHandler(PrefixHandler):
                         raise ValueError(
                             _(u"Inconnu numéro de la answer {}.")
                             .format(answer))
+
+                    if YES_REGEX.match(answer):
+                        answer = Question.YES
+                    else:
+                        answer = Question.NO
+
                 return question, answer
 
         raise HandlerError(
