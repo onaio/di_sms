@@ -1,0 +1,1320 @@
+[
+{
+    "pk": 1, 
+    "model": "main.section", 
+    "fields": {
+        "date_created": "2014-10-23T07:22:28.275Z", 
+        "name": "opening1", 
+        "date_modified": "2014-10-23T07:22:28.275Z"
+    }
+},
+{
+    "pk": 2, 
+    "model": "main.section", 
+    "fields": {
+        "date_created": "2014-10-23T07:40:54.597Z", 
+        "name": "opening2", 
+        "date_modified": "2014-10-23T07:40:54.597Z"
+    }
+},
+{
+    "pk": 3, 
+    "model": "main.section", 
+    "fields": {
+        "date_created": "2014-10-23T07:50:23.204Z", 
+        "name": "running_eday1", 
+        "date_modified": "2014-10-23T07:50:23.204Z"
+    }
+},
+{
+    "pk": 4, 
+    "model": "main.section", 
+    "fields": {
+        "date_created": "2014-10-23T07:56:03.309Z", 
+        "name": "running_eday2", 
+        "date_modified": "2014-10-23T07:56:03.309Z"
+    }
+},
+{
+    "pk": 5, 
+    "model": "main.section", 
+    "fields": {
+        "date_created": "2014-10-23T08:18:48.233Z", 
+        "name": "running_eday3", 
+        "date_modified": "2014-10-23T08:18:48.233Z"
+    }
+},
+{
+    "pk": 6, 
+    "model": "main.section", 
+    "fields": {
+        "date_created": "2014-10-23T08:23:02.515Z", 
+        "name": "outside_polling_station", 
+        "date_modified": "2014-10-23T08:23:02.515Z"
+    }
+},
+{
+    "pk": 7, 
+    "model": "main.section", 
+    "fields": {
+        "date_created": "2014-10-23T08:32:46.434Z", 
+        "name": "handicapped_voters", 
+        "date_modified": "2014-10-23T08:32:46.434Z"
+    }
+},
+{
+    "pk": 8, 
+    "model": "main.section", 
+    "fields": {
+        "date_created": "2014-10-23T08:39:19.530Z", 
+        "name": "closing", 
+        "date_modified": "2014-10-23T08:39:19.530Z"
+    }
+},
+{
+    "pk": 9, 
+    "model": "main.section", 
+    "fields": {
+        "date_created": "2014-10-23T08:42:08.998Z", 
+        "name": "sort_and_count1", 
+        "date_modified": "2014-10-23T08:42:08.998Z"
+    }
+},
+{
+    "pk": 10, 
+    "model": "main.section", 
+    "fields": {
+        "date_created": "2014-10-23T08:47:18.452Z", 
+        "name": "sort_and_count2", 
+        "date_modified": "2014-10-23T08:47:18.452Z"
+    }
+},
+{
+    "pk": 11, 
+    "model": "main.section", 
+    "fields": {
+        "date_created": "2014-10-23T08:57:49.097Z", 
+        "name": "sort_and_count3", 
+        "date_modified": "2014-10-23T08:57:49.097Z"
+    }
+},
+{
+    "pk": 12, 
+    "model": "main.section", 
+    "fields": {
+        "date_created": "2014-10-23T09:07:51.196Z", 
+        "name": "polling_center_data", 
+        "date_modified": "2014-10-23T09:07:51.196Z"
+    }
+},
+{
+    "pk": 1, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:23:01.322Z", 
+        "section": 1, 
+        "question": "Were the army and police present outside the center when you showed up?", 
+        "number": 1, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:23:01.322Z"
+    }
+},
+{
+    "pk": 2, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:24:17.211Z", 
+        "section": 1, 
+        "question": "Were all of the polling station\u2019s members present at the opening? (The number should not be less than )", 
+        "number": 2, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:24:17.211Z"
+    }
+},
+{
+    "pk": 3, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:24:45.534Z", 
+        "section": 1, 
+        "question": "Did the polling station\u2019s chairperson open the ballot box and extract all the electoral material?", 
+        "number": 3, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:24:45.534Z"
+    }
+},
+{
+    "pk": 4, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:26:19.783Z", 
+        "section": 1, 
+        "question": "Was the ballot box empty before the start of voting?", 
+        "number": 4, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:26:19.783Z"
+    }
+},
+{
+    "pk": 5, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:26:31.221Z", 
+        "section": 1, 
+        "question": "Was the ballot box sealed with the dedicated plastic seals (while leaving the box\u2019s upper hatch unsealed)?", 
+        "number": 5, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:26:31.221Z"
+    }
+},
+{
+    "pk": 6, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:27:09.129Z", 
+        "section": 1, 
+        "question": "Were all electoral materials available? - Voters list, ballots, vote and sort forms, polling center\u2019s register, booth - electoral ink, ISIE\u2019s stamp, ballot box, ballot box\u2019s seals, post-use electoral-material bags", 
+        "number": 6, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:27:09.129Z"
+    }
+},
+{
+    "pk": 7, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:27:43.127Z", 
+        "section": 1, 
+        "question": "Did the polling station\u2019s chairperson count the received ballots?", 
+        "number": 7, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:27:43.127Z"
+    }
+},
+{
+    "pk": 8, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:28:19.674Z", 
+        "section": 1, 
+        "question": "Were the ballot box\u2019s seals identical to the receipt form?", 
+        "number": 8, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:28:19.674Z"
+    }
+},
+{
+    "pk": 9, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:28:42.111Z", 
+        "section": 1, 
+        "question": "Was an adequate distance left between booths?", 
+        "number": 9, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:28:42.111Z"
+    }
+},
+{
+    "pk": 10, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:29:08.570Z", 
+        "section": 1, 
+        "question": " Were booths distant from windows?", 
+        "number": 10, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:29:08.570Z"
+    }
+},
+{
+    "pk": 11, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:41:52.259Z", 
+        "section": 2, 
+        "question": "Was the polling station\u2019s number posted outside the station?", 
+        "number": 11, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:41:52.259Z"
+    }
+},
+{
+    "pk": 12, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:42:15.963Z", 
+        "section": 2, 
+        "question": "Was a large sample of the ballot posted outside the polling station?", 
+        "number": 12, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:42:15.963Z"
+    }
+},
+{
+    "pk": 13, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:42:41.226Z", 
+        "section": 2, 
+        "question": "Were posters regarding voting steps posted outside the polling station?", 
+        "number": 13, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:42:41.226Z"
+    }
+},
+{
+    "pk": 14, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:43:08.020Z", 
+        "section": 2, 
+        "question": "Was the voters\u2019 list posted inside the center?", 
+        "number": 14, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:43:08.020Z"
+    }
+},
+{
+    "pk": 15, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:43:28.591Z", 
+        "section": 2, 
+        "question": "Did ISIE agents wear their ISIE-issued tags, in a distinct way?", 
+        "number": 15, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:43:28.591Z"
+    }
+},
+{
+    "pk": 16, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:44:00.723Z", 
+        "section": 2, 
+        "question": "Did the polling station\u2019s chairperson fill up the voting process form (number of received ballots, identification numbers of seals used to lock the ballot box, number of voters registered for the voting station)?", 
+        "number": 16, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:44:00.723Z"
+    }
+},
+{
+    "pk": 17, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:44:23.603Z", 
+        "section": 2, 
+        "question": "Did the voting station\u2019s chairperson read the form to attendees, aloud?", 
+        "number": 17, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:44:23.603Z"
+    }
+},
+{
+    "pk": 18, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:44:47.016Z", 
+        "section": 2, 
+        "question": "Did candidates and running-lists representatives refuse to sign the form?", 
+        "number": 18, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:44:47.016Z"
+    }
+},
+{
+    "pk": 19, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:48:17.172Z", 
+        "section": 2, 
+        "question": "Did the polling stations open at 7 a.m.?", 
+        "number": 20, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:45:12.704Z"
+    }
+},
+{
+    "pk": 20, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:47:54.644Z", 
+        "section": 2, 
+        "question": "Was the booth set up in a place apparent to everybody?", 
+        "number": 21, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:47:54.644Z"
+    }
+},
+{
+    "pk": 21, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:49:00.752Z", 
+        "section": 2, 
+        "question": " If yes, please specify the reason(s)", 
+        "number": 19, 
+        "question_type": "TXT", 
+        "date_created": "2014-10-23T07:49:00.752Z"
+    }
+},
+{
+    "pk": 22, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:51:00.709Z", 
+        "section": 3, 
+        "question": "Did the polling station agents check voters\u2019 identities?", 
+        "number": 22, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:51:00.709Z"
+    }
+},
+{
+    "pk": 23, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:51:30.562Z", 
+        "section": 3, 
+        "question": "Were voters hands checked for ink to make sure they have not already voted?", 
+        "number": 23, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:51:30.562Z"
+    }
+},
+{
+    "pk": 24, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:52:12.555Z", 
+        "section": 3, 
+        "question": "Were women wearing the face veil (Niqab) checked for their identities?", 
+        "number": 24, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:52:12.555Z"
+    }
+},
+{
+    "pk": 25, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:52:35.976Z", 
+        "section": 3, 
+        "question": "Were voters\u2019 names checked in the voters list?", 
+        "number": 25, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:52:35.976Z"
+    }
+},
+{
+    "pk": 26, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:52:57.703Z", 
+        "section": 3, 
+        "question": "Did somebody make sure voters sign in their dedicated boxes (the box near their names)?", 
+        "number": 26, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:52:57.703Z"
+    }
+},
+{
+    "pk": 27, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:53:19.961Z", 
+        "section": 3, 
+        "question": "Did somebody make sure voters put their left-hand index fingers in ink?", 
+        "number": 27, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:53:19.961Z"
+    }
+},
+{
+    "pk": 28, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:53:41.206Z", 
+        "section": 3, 
+        "question": "Did somebody make sure voters did not wipe the ink and waited until it dried?", 
+        "number": 28, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:53:41.206Z"
+    }
+},
+{
+    "pk": 29, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:54:02.103Z", 
+        "section": 3, 
+        "question": "Did somebody check the integrity of ballots?", 
+        "number": 29, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:54:02.103Z"
+    }
+},
+{
+    "pk": 30, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:54:31.003Z", 
+        "section": 3, 
+        "question": "Did somebody check the stamps on the four back corners of ballots?", 
+        "number": 30, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:54:31.003Z"
+    }
+},
+{
+    "pk": 31, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:54:54.120Z", 
+        "section": 3, 
+        "question": "Did every voter receive his ballot, individually?", 
+        "number": 31, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:54:54.120Z"
+    }
+},
+{
+    "pk": 32, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:56:42.374Z", 
+        "section": 4, 
+        "question": "Did the agent in charge of monitoring the ballot box check if the ballots were folded properly?", 
+        "number": 32, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:56:42.374Z"
+    }
+},
+{
+    "pk": 33, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:56:57.154Z", 
+        "section": 4, 
+        "question": "Did the agent in charge of monitoring the ballot box check if the ballots were stamped?", 
+        "number": 33, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:56:57.154Z"
+    }
+},
+{
+    "pk": 34, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:57:20.769Z", 
+        "section": 4, 
+        "question": "Did the polling station agents look after the ballot box?", 
+        "number": 34, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:57:20.769Z"
+    }
+},
+{
+    "pk": 35, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:57:46.078Z", 
+        "section": 4, 
+        "question": "Did the polling station\u2019s chairperson regularly check the voting booths for ballots or any campaign material?", 
+        "number": 35, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:57:46.078Z"
+    }
+},
+{
+    "pk": 36, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:58:22.643Z", 
+        "section": 4, 
+        "question": "Did the polling station\u2019s chairperson regularly check the availability of pens dedicated for voting?", 
+        "number": 36, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:58:22.643Z"
+    }
+},
+{
+    "pk": 37, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:58:51.335Z", 
+        "section": 4, 
+        "question": "Did you notice any electoral campaign inside the center?", 
+        "number": 37, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:58:51.335Z"
+    }
+},
+{
+    "pk": 38, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:59:29.244Z", 
+        "section": 4, 
+        "question": "Did security forces enter the center?", 
+        "number": 38, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:59:29.244Z"
+    }
+},
+{
+    "pk": 39, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T07:59:44.989Z", 
+        "section": 4, 
+        "question": "Did security forces enter the center?", 
+        "number": 39, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T07:59:44.989Z"
+    }
+},
+{
+    "pk": 40, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:14:29.865Z", 
+        "section": 4, 
+        "question": "Were unauthorized parties present inside the polling center/station? (Attach a list of authorized parties)", 
+        "number": 40, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:14:29.865Z"
+    }
+},
+{
+    "pk": 41, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:16:39.227Z", 
+        "section": 4, 
+        "question": "Did international and local observers carry their accreditation cards?", 
+        "number": 41, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:16:39.227Z"
+    }
+},
+{
+    "pk": 42, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:19:23.195Z", 
+        "section": 5, 
+        "question": "Were there other observers inside the polling station?", 
+        "number": 42, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:19:23.195Z"
+    }
+},
+{
+    "pk": 43, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:19:53.106Z", 
+        "section": 5, 
+        "question": "Was the voting process stopped at any given time?", 
+        "number": 43, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:19:53.106Z"
+    }
+},
+{
+    "pk": 44, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:20:17.174Z", 
+        "section": 5, 
+        "question": "Did any voter vote more than once?", 
+        "number": 44, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:20:17.174Z"
+    }
+},
+{
+    "pk": 45, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:20:38.391Z", 
+        "section": 5, 
+        "question": "Did candidates and running-lists representatives lodge any complains or reserves to the voting station\u2019s chairperson (or a written memo)?", 
+        "number": 45, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:20:38.391Z"
+    }
+},
+{
+    "pk": 46, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:21:00.177Z", 
+        "section": 5, 
+        "question": "Did candidates or running-lists representatives influence voters by a suggestion, a say, or a gesture revealing a political affiliation?", 
+        "number": 46, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:21:00.177Z"
+    }
+},
+{
+    "pk": 47, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:21:19.024Z", 
+        "section": 5, 
+        "question": "Did candidates and running-lists representatives assist voters?", 
+        "number": 47, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:21:19.024Z"
+    }
+},
+{
+    "pk": 48, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:21:44.951Z", 
+        "section": 5, 
+        "question": "Did candidates and running-lists representatives wear or carry any item referring to a candidate\u2019s name or number?", 
+        "number": 48, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:21:44.951Z"
+    }
+},
+{
+    "pk": 49, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:22:15.203Z", 
+        "section": 5, 
+        "question": "Did media (or other parties) use cameras inside the polling station?", 
+        "number": 49, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:22:15.203Z"
+    }
+},
+{
+    "pk": 50, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:25:32.598Z", 
+        "section": 5, 
+        "question": "If yes, were they authorized by the polling center/station\u2019s chairperson to do so?", 
+        "number": 50, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:25:32.598Z"
+    }
+},
+{
+    "pk": 51, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:28:49.609Z", 
+        "section": 6, 
+        "question": "Did the line organizer communicate with voters and remind them to get their IDs ready?", 
+        "number": 51, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:28:49.609Z"
+    }
+},
+{
+    "pk": 52, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:29:08.785Z", 
+        "section": 6, 
+        "question": "Did the line organizer check voters\u2019 names in the voters list?", 
+        "number": 52, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:29:08.785Z"
+    }
+},
+{
+    "pk": 53, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:29:27.348Z", 
+        "section": 6, 
+        "question": "Were elderly and pregnant women prioritized?", 
+        "number": 53, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:29:27.348Z"
+    }
+},
+{
+    "pk": 54, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:33:14.984Z", 
+        "section": 7, 
+        "question": "Was the polling center easily accessible to voters with handicaps?", 
+        "number": 54, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:33:14.984Z"
+    }
+},
+{
+    "pk": 55, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:33:48.285Z", 
+        "section": 7, 
+        "question": "Was the polling station set up in an appropriate way to receive voters with handicaps and allow them to vote?", 
+        "number": 55, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:33:48.285Z"
+    }
+},
+{
+    "pk": 56, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:34:07.621Z", 
+        "section": 7, 
+        "question": "Was the voter with a handicap prioritized in the queue?", 
+        "number": 56, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:34:07.621Z"
+    }
+},
+{
+    "pk": 57, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:34:54.863Z", 
+        "section": 7, 
+        "question": "Were Braille-scripted ballots available to blind voters?", 
+        "number": 57, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:34:54.863Z"
+    }
+},
+{
+    "pk": 58, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:35:47.890Z", 
+        "section": 7, 
+        "question": "Did voters with handicaps show their \u00ab person-with-handicap cards \u00bb?", 
+        "number": 58, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:35:47.890Z"
+    }
+},
+{
+    "pk": 59, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:36:10.979Z", 
+        "section": 7, 
+        "question": "Was the assistant\u2019s left pinky finger check for ink to make sure he did not help another voter?", 
+        "number": 59, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:36:10.979Z"
+    }
+},
+{
+    "pk": 60, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:36:32.661Z", 
+        "section": 7, 
+        "question": "Did someone check if the assistant is an eligible voter?", 
+        "number": 60, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:36:32.661Z"
+    }
+},
+{
+    "pk": 61, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:36:57.294Z", 
+        "section": 7, 
+        "question": "Did someone check if the assistant is the voter\u2019s spouse, ascendant/descendant?", 
+        "number": 61, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:36:57.294Z"
+    }
+},
+{
+    "pk": 62, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:37:21.274Z", 
+        "section": 7, 
+        "question": "Was the assistant\u2019s left pinky inked?", 
+        "number": 62, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:37:21.274Z"
+    }
+},
+{
+    "pk": 63, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:37:53.084Z", 
+        "section": 7, 
+        "question": "Did the assistant try to influence the choice of the voter", 
+        "number": 63, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:37:53.084Z"
+    }
+},
+{
+    "pk": 64, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:38:14.914Z", 
+        "section": 7, 
+        "question": "What's the total number of voters with handicaps who cast a ballot in the center where you were observing?", 
+        "number": 64, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:38:14.914Z"
+    }
+},
+{
+    "pk": 65, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:39:44.148Z", 
+        "section": 8, 
+        "question": "Did the polling stations close at 6 p.m.?", 
+        "number": 65, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:39:44.148Z"
+    }
+},
+{
+    "pk": 66, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:40:04.821Z", 
+        "section": 8, 
+        "question": "Were all voters inside the polling center allowed to vote?", 
+        "number": 66, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:40:04.821Z"
+    }
+},
+{
+    "pk": 67, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:40:23.808Z", 
+        "section": 8, 
+        "question": "Did the polling station\u2019s chairperson seal the upper hatch with a plastic seal?", 
+        "number": 67, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:40:23.808Z"
+    }
+},
+{
+    "pk": 68, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:40:46.059Z", 
+        "section": 8, 
+        "question": "Did the polling station\u2019s chairperson count the remaining, and destroyed ballots, and the number of signatures?", 
+        "number": 68, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:40:46.059Z"
+    }
+},
+{
+    "pk": 69, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:41:10.912Z", 
+        "section": 8, 
+        "question": "Were these information inserted in the voting process form (remaining and destroyed ballots and the number of signatures)?", 
+        "number": 69, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:41:10.912Z"
+    }
+},
+{
+    "pk": 70, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:42:38.012Z", 
+        "section": 9, 
+        "question": "Were you allowed to observe the vote sorting and counting?", 
+        "number": 70, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:42:38.012Z"
+    }
+},
+{
+    "pk": 71, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:43:00.914Z", 
+        "section": 9, 
+        "question": "Was the ballot box put in a place enabling everybody to watch?", 
+        "number": 71, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:43:00.914Z"
+    }
+},
+{
+    "pk": 72, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:43:32.709Z", 
+        "section": 9, 
+        "question": "Did candidates and running-lists\u2019 representatives check the conformity of seals\u2019 numbers with the numbers mentioned in the voting process form?", 
+        "number": 72, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:43:32.709Z"
+    }
+},
+{
+    "pk": 73, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:43:51.445Z", 
+        "section": 9, 
+        "question": "After unsealing and emptying the ballot box, was it shown to attendees, empty?", 
+        "number": 73, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:43:51.445Z"
+    }
+},
+{
+    "pk": 74, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:44:17.740Z", 
+        "section": 9, 
+        "question": "Were ballots sorted in stacks of?", 
+        "number": 74, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:44:17.740Z"
+    }
+},
+{
+    "pk": 75, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:44:41.285Z", 
+        "section": 9, 
+        "question": "Were ballots extracted from the ballot box counted? Did they match the number of signatures?", 
+        "number": 75, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:44:41.285Z"
+    }
+},
+{
+    "pk": 76, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:45:27.005Z", 
+        "section": 9, 
+        "question": "Did the ballots received by the polling station match the number of votes inside the ballot box + destroyed ballots + remaining ballots?", 
+        "number": 76, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:45:27.005Z"
+    }
+},
+{
+    "pk": 77, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:45:53.644Z", 
+        "section": 8, 
+        "question": "Was any of these materials missing? - Documents: voters list, sorting process form, voting process form, procedures guide, disclosure paper in both A and A sizes? - Material and tools: ballot box, ballot box seals, ISIE stamp, calculator, red and blue pens, envelopes for sensitive electoral material, remaining and destroyed ballots?", 
+        "number": 77, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:45:53.644Z"
+    }
+},
+{
+    "pk": 78, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:46:14.468Z", 
+        "section": 9, 
+        "question": "Did the polling station\u2019s chairperson and his assistant set up the desk in a way that allows attendees to follow the full process?", 
+        "number": 78, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:46:14.468Z"
+    }
+},
+{
+    "pk": 79, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:46:35.977Z", 
+        "section": 9, 
+        "question": "Was the disclosure of vote public?", 
+        "number": 79, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:46:35.977Z"
+    }
+},
+{
+    "pk": 80, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:47:46.565Z", 
+        "section": 10, 
+        "question": "Was the content of ballots shown to attendees, and read, aloud?", 
+        "number": 80, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:47:46.565Z"
+    }
+},
+{
+    "pk": 81, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:49:14.024Z", 
+        "section": 10, 
+        "question": "Did any of the candidates or the running-list representatives intervene in the sorting?", 
+        "number": 81, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:49:14.024Z"
+    }
+},
+{
+    "pk": 82, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:49:42.226Z", 
+        "section": 10, 
+        "question": "Did any of the attendees leave the polling station during the sorting?", 
+        "number": 82, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:49:42.226Z"
+    }
+},
+{
+    "pk": 83, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:50:05.915Z", 
+        "section": 10, 
+        "question": "Did the polling station\u2019s chairperson fill up copies of the sorting process form?", 
+        "number": 83, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:50:05.915Z"
+    }
+},
+{
+    "pk": 84, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:51:20.174Z", 
+        "section": 10, 
+        "question": "Were cancelled ballots counted and put in their dedicated envelop labelled \u201ccancelled ballots\u201d? Was the number of cancelled ballots written down on the envelope?", 
+        "number": 84, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:51:20.174Z"
+    }
+},
+{
+    "pk": 85, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:53:39.474Z", 
+        "section": 10, 
+        "question": "Were cancelled ballots counted and put in their dedicated envelop labelled \u201cblank ballots\u201d? Was the number of blank ballots written down on the envelope?", 
+        "number": 85, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:51:44.872Z"
+    }
+},
+{
+    "pk": 86, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:52:46.793Z", 
+        "section": 10, 
+        "question": "Was the number of votes obtained by a candidate or a running list counted in the disclosure form?", 
+        "number": 86, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:52:46.793Z"
+    }
+},
+{
+    "pk": 87, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:53:54.116Z", 
+        "section": 10, 
+        "question": "Did the sorters write down the number of votes every list obtained in the disclosure form?", 
+        "number": 87, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:53:54.116Z"
+    }
+},
+{
+    "pk": 88, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:54:26.130Z", 
+        "section": 10, 
+        "question": "Did they sign at the bottom of the forms?", 
+        "number": 88, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:54:26.130Z"
+    }
+},
+{
+    "pk": 89, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:56:00.466Z", 
+        "section": 10, 
+        "question": "Did the polling station\u2019s chairperson compare the number of ballots extracted from the ballot box to the total number of votes obtained by every list + number of blank ballots + number of cancelled ballots?", 
+        "number": 89, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:56:00.466Z"
+    }
+},
+{
+    "pk": 90, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:58:40.971Z", 
+        "section": 11, 
+        "question": "Was the sorting process form completed?", 
+        "number": 90, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:58:40.971Z"
+    }
+},
+{
+    "pk": 91, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:59:07.587Z", 
+        "section": 11, 
+        "question": "Did the polling station\u2019s chairperson read the sorting form to attendees?", 
+        "number": 91, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:59:07.587Z"
+    }
+},
+{
+    "pk": 92, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:59:30.699Z", 
+        "section": 11, 
+        "question": "Were the materials stored following the sort and count?", 
+        "number": 92, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:59:30.699Z"
+    }
+},
+{
+    "pk": 93, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T08:59:54.359Z", 
+        "section": 11, 
+        "question": "Did candidates running-lists\u2019 representatives sign at the bottom of the sort form?", 
+        "number": 93, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T08:59:54.359Z"
+    }
+},
+{
+    "pk": 94, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T09:00:23.372Z", 
+        "section": 11, 
+        "question": "If No, please specify the reason(s)", 
+        "number": 94, 
+        "question_type": "TXT", 
+        "date_created": "2014-10-23T09:00:23.372Z"
+    }
+},
+{
+    "pk": 95, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T09:00:49.759Z", 
+        "section": 11, 
+        "question": "Was the sort-and-count form posted?", 
+        "number": 95, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T09:00:49.759Z"
+    }
+},
+{
+    "pk": 96, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T09:01:12.552Z", 
+        "section": 11, 
+        "question": "What were the results in the polling station where you were observing?", 
+        "number": 96, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T09:01:12.552Z"
+    }
+},
+{
+    "pk": 97, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T09:01:32.753Z", 
+        "section": 11, 
+        "question": "Was the ballot box handed to the person in charge of collection?", 
+        "number": 97, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T09:01:32.753Z"
+    }
+},
+{
+    "pk": 98, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T09:05:15.862Z", 
+        "section": 11, 
+        "question": "Were the army and police still present outside the center when you left?", 
+        "number": 98, 
+        "question_type": "YN", 
+        "date_created": "2014-10-23T09:05:15.862Z"
+    }
+},
+{
+    "pk": 99, 
+    "model": "main.question", 
+    "fields": {
+        "date_modified": "2014-10-23T09:06:34.318Z", 
+        "section": 11, 
+        "question": "On a scale that goes from 1-10 to , how would you evaluate the electoral process?", 
+        "number": 99, 
+        "question_type": "N", 
+        "date_created": "2014-10-23T09:06:34.318Z"
+    }
+},
+{
+    "pk": 1, 
+    "model": "main.answer", 
+    "fields": {
+        "answer": "y", 
+        "phone_number": "+254720395121", 
+        "date_modified": "2014-10-23T12:02:09.453Z", 
+        "question": 1, 
+        "date_created": "2014-10-23T12:02:09.453Z"
+    }
+},
+{
+    "pk": 2, 
+    "model": "main.answer", 
+    "fields": {
+        "answer": "N", 
+        "phone_number": "+21624699736", 
+        "date_modified": "2014-10-23T12:02:47.760Z", 
+        "question": 1, 
+        "date_created": "2014-10-23T12:02:47.760Z"
+    }
+}
+]
