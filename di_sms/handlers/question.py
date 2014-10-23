@@ -23,7 +23,7 @@ class QuestionHandler(PrefixHandler):
     prefix = '#'
 
     def handle(self, answers):
-        self.phone_number = self.msg.connections.identity
+        self.phone_number = self.msg.connections[0].identity
 
         if self._valid_questions(answers):
             responses = []

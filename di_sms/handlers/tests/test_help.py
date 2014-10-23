@@ -10,7 +10,7 @@ class TestHelpHandler(RapidTest):
 
     def test_dispatch(self):
         response = "Help! Expected commands are ... "
-        msg = IncomingMessage(self.connection, "help")
+        msg = IncomingMessage([self.connection], "help")
         retVal = HelpHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
         self.assertEqual(len(msg.responses), 1)

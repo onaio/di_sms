@@ -15,8 +15,8 @@ from di_sms.main.models import Answer
 class TestHelpHandler(RapidTest):
     def setUp(self):
         self.contact = self.create_contact()
-        self.connection = self.lookup_connections(['+12344243'])[0]
-        self.connection.contact = self.contact
+        self.connections = self.lookup_connections(['+12344243'])
+        self.connections[0].contact = self.contact
 
     def _load_questions_fixture(self):
         fixture_path = os.path.join(
@@ -31,7 +31,7 @@ class TestHelpHandler(RapidTest):
         count = Answer.objects.count()
         self._load_questions_fixture()
         response = u'Vous avez répondu à la/les question(s): 1.'
-        msg = IncomingMessage(self.connection, "#1 y")
+        msg = IncomingMessage(self.connections, "#1 y")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
         self.assertEqual(len(msg.responses), 1)
@@ -39,7 +39,7 @@ class TestHelpHandler(RapidTest):
         self.assertEqual(count + 1, Answer.objects.count())
 
         response = u'Vous avez répondu à la/les question(s): 1,3.'
-        msg = IncomingMessage(self.connection, "#1 y #3 N")
+        msg = IncomingMessage(self.connections, "#1 y #3 N")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
         self.assertEqual(len(msg.responses), 1)
@@ -47,7 +47,7 @@ class TestHelpHandler(RapidTest):
         self.assertEqual(count + 2, Answer.objects.count())
 
         response = u'Inconnu numéro de la question 34.'
-        msg = IncomingMessage(self.connection, "#1 y #34 n")
+        msg = IncomingMessage(self.connections, "#1 y #34 n")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
         self.assertEqual(len(msg.responses), 1)
@@ -56,7 +56,7 @@ class TestHelpHandler(RapidTest):
 
     def test_dispatch_unknown_question(self):
         response = u'Inconnu numéro de la question 1.'
-        msg = IncomingMessage(self.connection, "#1 y")
+        msg = IncomingMessage(self.connections, "#1 y")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
         self.assertEqual(len(msg.responses), 1)
@@ -64,7 +64,7 @@ class TestHelpHandler(RapidTest):
 
         response = u'Inconnu numéro de la question 1.'
         response += u' Inconnu numéro de la question 34.'
-        msg = IncomingMessage(self.connection, "#1 y #34 n")
+        msg = IncomingMessage(self.connections, "#1 y #34 n")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
         self.assertEqual(len(msg.responses), 1)
@@ -74,7 +74,7 @@ class TestHelpHandler(RapidTest):
         count = Answer.objects.count()
         self._load_questions_fixture()
         response = u'Inconnu numéro de la answer k.'
-        msg = IncomingMessage(self.connection, u"#1 k")
+        msg = IncomingMessage(self.connections, u"#1 k")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
         self.assertEqual(len(msg.responses), 1)
