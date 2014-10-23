@@ -31,22 +31,35 @@ class TestHelpHandler(RapidTest):
     def test_dispatch_question(self):
         count = Answer.objects.count()
         self._load_questions_fixture()
-        response = u'Vous avez répondu à la/les question(s): 1.'
+        response0 = u'opening1 is missing question(s): 2,3.'
+        response1 = u'Vous avez répondu à la/les question(s): 1.'
         msg = IncomingMessage(self.connections, "#1 y")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
-        self.assertEqual(len(msg.responses), 1)
-        self.assertEqual(msg.responses[0]['text'], response)
+        self.assertEqual(len(msg.responses), 2)
+        self.assertEqual(msg.responses[0]['text'], response0)
+        self.assertEqual(msg.responses[1]['text'], response1)
         self.assertEqual(count + 1, Answer.objects.count())
         self.assertEqual(Answer.objects.all()[0].answer, Question.YES)
 
-        response = u'Vous avez répondu à la/les question(s): 1,3.'
+        response0 = u'opening1 is missing question(s): 2.'
+        response1 = u'Vous avez répondu à la/les question(s): 1,3.'
         msg = IncomingMessage(self.connections, "#1 y #3 N")
+        retVal = QuestionHandler.dispatch(self.router, msg)
+        self.assertTrue(retVal)
+        self.assertEqual(len(msg.responses), 2)
+        self.assertEqual(msg.responses[0]['text'], response0)
+        self.assertEqual(msg.responses[1]['text'], response1)
+        self.assertEqual(count + 2, Answer.objects.count())
+        self.assertEqual(Answer.objects.all()[1].answer, Question.NO)
+
+        response = u'Vous avez répondu à la/les question(s): 1,2,3.'
+        msg = IncomingMessage(self.connections, "#1 y #2 n #3 N")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
         self.assertEqual(len(msg.responses), 1)
         self.assertEqual(msg.responses[0]['text'], response)
-        self.assertEqual(count + 2, Answer.objects.count())
+        self.assertEqual(count + 3, Answer.objects.count())
         self.assertEqual(Answer.objects.all()[1].answer, Question.NO)
 
         response = u'Inconnu numéro de la question 34.'
@@ -55,7 +68,7 @@ class TestHelpHandler(RapidTest):
         self.assertTrue(retVal)
         self.assertEqual(len(msg.responses), 1)
         self.assertEqual(msg.responses[0]['text'], response)
-        self.assertEqual(count + 2, Answer.objects.count())
+        self.assertEqual(count + 3, Answer.objects.count())
 
     def test_dispatch_unknown_question(self):
         response = u'Inconnu numéro de la question 1.'

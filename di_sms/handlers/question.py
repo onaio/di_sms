@@ -5,7 +5,6 @@ import uuid
 
 from django.conf import settings
 from django.template.loader import render_to_string
-from django.utils import timezone
 from django.utils.translation import ugettext as _
 from django.utils.encoding import smart_unicode
 
@@ -96,11 +95,13 @@ class QuestionHandler(PrefixHandler):
         return answer
 
     @classmethod
-    def _submission_xml(cls, answers, section_id, section_name, context={}):
-        qa = answers.filter(question__section=section_id)\
-            .values_list('question__number', 'answer')
+    def _submission_xml(cls, answers_qs, section_name, context={}):
+        if not answers_qs.count():
+            return u''
+
+        qa = answers_qs.values_list('question__number', 'answer')
         context['section'] = section_name
-        context['today'] = unicode(timezone.now().date())
+        context['today'] = unicode(answers_qs[0].date_created.date())
         context['instanceID'] = uuid.uuid4()
         context['question_answer'] = qa
         xml = render_to_string('section.xml', context).strip()
@@ -108,19 +109,38 @@ class QuestionHandler(PrefixHandler):
 
         return xml
 
+    def _valid_section(self, answers):
+        count = answers.count()
+
+        if count:
+            answered = answers.values_list('question', flat=True)
+            section = answers[0].question.section
+
+            section_qs = Question.objects.filter(section=section)
+
+            self.missing = [
+                unicode(q) for q in section_qs.exclude(pk__in=answered)
+                .values_list('number', flat=True)]
+
+            return count == section_qs.count()
+
+        return True
+
     def _make_ona_submission(self, answers):
-        # get answers per section
-        # generate xml submission
-        # make submission to ona.io
-        answer_qs = Answer.objects.filter(pk__in=answers)
+        answer_qs = Answer.objects.filter(
+            pk__in=answers, phone_number=self.phone_number).select_related()
         sections = answer_qs.values_list('question__section',
-                                         'question__section__name')
+                                         'question__section__name').distinct()
         context = {
             "phone_number": self.phone_number
         }
         url = settings.ONA_SUBMISSION_URL
 
         for section_id, section_name in sections:
-            xml_str = self._submission_xml(
-                answer_qs, section_id, section_name, context)
-            make_ona_submission(url, xml_str)
+            qa = answer_qs.filter(question__section=section_id)
+            if self._valid_section(qa):
+                xml_str = self._submission_xml(qa, section_name, context)
+                make_ona_submission(url, xml_str)
+            else:
+                self.respond(_(u"{} is missing question(s): {}.")
+                             .format(section_name, u','.join(self.missing)))
