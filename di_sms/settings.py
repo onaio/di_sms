@@ -227,3 +227,5 @@ RAPIDSMS_HANDLERS = (
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+ONA_SUBMISSION_URL = 'https://ona.io/submission'

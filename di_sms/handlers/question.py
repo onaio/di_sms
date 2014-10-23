@@ -1,13 +1,20 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import re
+import uuid
 
+from django.conf import settings
+from django.template.loader import render_to_string
+from django.utils import timezone
 from django.utils.translation import ugettext as _
+from django.utils.encoding import smart_unicode
+
 from rapidsms.contrib.handlers.exceptions import HandlerError
 
 from di_sms.handlers.prefix import PrefixHandler
 from di_sms.main.models import Answer
 from di_sms.main.models import Question
+from di_sms.main.utils import make_ona_submission
 
 YES_NO_REGEX = re.compile('([ynmYNoO0])', re.IGNORECASE)
 
@@ -16,11 +23,16 @@ class QuestionHandler(PrefixHandler):
     prefix = '#'
 
     def handle(self, answers):
+        self.phone_number = self.msg.connections.identity
+
         if self._valid_questions(answers):
             responses = []
+            qa = []
             for question, answer in self.question_answers:
-                self._save_answer(question, answer)
-                responses.append(str(question.pk))
+                qa.append(self._save_answer(question, answer).pk)
+                responses.append(str(question.number))
+
+            self._make_ona_submission(qa)
 
             self.respond(
                 _(u"Vous avez répondu à la/les question(s): {}.").format(
@@ -71,7 +83,37 @@ class QuestionHandler(PrefixHandler):
         if not self.msg.connections:
             raise ValueError
 
-        phone_number = self.msg.connections.identity
+        answer, created = Answer.objects.get_or_create(
+            phone_number=self.phone_number, question=question, answer=answer)
 
-        Answer.objects.get_or_create(
-            phone_number=phone_number, question=question, answer=answer)
+        return answer
+
+    @classmethod
+    def _submission_xml(cls, answers, section_id, section_name, context={}):
+        qa = answers.filter(question__section=section_id)\
+            .values_list('question__number', 'answer')
+        context['section'] = section_name
+        context['today'] = unicode(timezone.now().date())
+        context['instanceID'] = uuid.uuid4()
+        context['question_answer'] = qa
+        xml = render_to_string('section.xml', context).strip()
+        xml = re.sub(ur">\s+<", u"><", smart_unicode(xml))
+
+        return xml
+
+    def _make_ona_submission(self, answers):
+        # get answers per section
+        # generate xml submission
+        # make submission to ona.io
+        answer_qs = Answer.objects.filter(pk__in=answers)
+        sections = answer_qs.values_list('question__section',
+                                         'question__section__name')
+        context = {
+            "phone_number": self.phone_number
+        }
+        url = settings.ONA_SUBMISSION_URL
+
+        for section_id, section_name in sections:
+            xml_str = self._submission_xml(
+                answer_qs, section_id, section_name, context)
+            make_ona_submission(url, xml_str)

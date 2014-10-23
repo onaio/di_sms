@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<{{section}} id="{{section}}">
+<phonenumber>{{ phone_number }}</phonenumber>
+<observers_phone_number>{{ phone_number }}</observers_phone_number>
+     <verified>not_verified</verified>
+     {% for question, answer in question_answer %}
+     <q{{ question }}>{{ answer }}</q{{ question }}>
+     {% endfor %}
+     <meta>
+         <instanceID>{{ instanceID }}</instanceID>
+     </meta>
+ </{{section}}>
