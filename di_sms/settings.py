@@ -1,6 +1,7 @@
 # Django settings for di_sms project.
 
 import os
+import sys
 
 # The top directory for this project. Contains requirements/, manage.py,
 # and README.rst, a di_sms directory with settings etc (see
@@ -39,7 +40,7 @@ TIME_ZONE = 'Africa/Tunis'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr'
 
 SITE_ID = 1
 
@@ -229,3 +230,10 @@ RAPIDSMS_HANDLERS = (
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 ONA_SUBMISSION_URL = 'https://ona.io/submission'
+
+LOCALE_PATHS = (
+    os.path.join(PROJECT_PATH, 'handlers', 'locale'),
+)
+
+if len(sys.argv) >= 2 and (sys.argv[1] == "test" or sys.argv[1] == "test_all"):
+    LANGUAGE_CODE = 'en-us'
