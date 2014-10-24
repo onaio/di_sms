@@ -1,0 +1,49 @@
+# DI Tunisia SMS.
+# Copyright (C) 2014
+# This file is distributed under the same license as the di_sms package.
+# Ukang'a Dickson <ukanga@ona.io>, 2014.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-24 11:40+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Sylvia Musula <smusula@ona.io>\n"
+"Language-Team: Ona Systems LLC <tech@ona.io>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: help.py:12
+#, fuzzy
+msgid "Help! Expected commands are #1 answer1 #2 answer2 ..."
+msgstr ""
+"Pour vous aider! des commandes attendus sont #1 réponse1 #2 réponse2 ..."
+
+#: question.py:39
+msgid "You responded to question(s): {}."
+msgstr "Vous avez repondu à une question(s): {}."
+
+#: question.py:71
+msgid "Unknown question number {}."
+msgstr "Numéro de question inconnue {}."
+
+#: question.py:76
+msgid "Invalid answer {}, expecting Y or N."
+msgstr "Response invalide! {}, en attente Y ou N."
+
+#: question.py:86
+msgid "{} is not a number."
+msgstr "{} ce n’est pas un numéro"
+
+#: question.py:92
+msgid "Unknown question {}."
+msgstr "Question inconnue {}."
+
+#: question.py:151
+msgid "{} is missing question(s): {}."
+msgstr "{} La question(s) n’est pas là: {}."

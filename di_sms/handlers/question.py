@@ -17,6 +17,7 @@ from di_sms.main.utils import make_ona_submission
 
 YES_NO_REGEX = re.compile('([ynYN])', re.IGNORECASE)
 YES_REGEX = re.compile('([yY])', re.IGNORECASE)
+NUMBER_REGEX = re.compile('(^[0-9]+(\.[0-9]+)*)')
 
 
 class QuestionHandler(PrefixHandler):
@@ -35,7 +36,7 @@ class QuestionHandler(PrefixHandler):
             self._make_ona_submission(qa)
 
             self.respond(
-                _(u"Vous avez répondu à la/les question(s): {}.").format(
+                _(u"You responded to question(s): {}.").format(
                     u','.join(responses))
             )
         else:
@@ -60,19 +61,19 @@ class QuestionHandler(PrefixHandler):
         match = re.match(qa_regex, text)
 
         if match:
-            answer = match.groupdict()['answer']
+            answer = match.groupdict()['answer'].strip()
             question = match.groupdict()['number']
 
             try:
                 question = Question.objects.get(number=question)
             except Question.DoesNotExist:
                 raise ValueError(
-                    _(u"Inconnu numéro de la question {}.").format(question))
+                    _(u"Unknown question number {}.").format(question))
             else:
                 if question.question_type == Question.YES_NO:
                     if not YES_NO_REGEX.match(answer):
                         raise ValueError(
-                            _(u"Inconnu numéro de la answer {}.")
+                            _(u"Invalid answer {}, expecting Y or N.")
                             .format(answer))
 
                     if YES_REGEX.match(answer):
@@ -80,10 +81,15 @@ class QuestionHandler(PrefixHandler):
                     else:
                         answer = Question.NO
 
+                if question.question_type == Question.NUMBER:
+                    if not NUMBER_REGEX.match(answer):
+                        raise ValueError(_(u"{} is not a number.")
+                                         .format(answer))
+
                 return question, answer
 
         raise HandlerError(
-            _(u"Inconnu numéro de la question {}.").format(text))
+            _(u"Unknown question {}.").format(text))
 
     def _save_answer(self, question, answer):
         if not self.msg.connections:
@@ -102,7 +108,7 @@ class QuestionHandler(PrefixHandler):
         qa = answers_qs.values_list('question__number', 'answer')
         context['section'] = section_name
         context['today'] = unicode(answers_qs[0].date_created.date())
-        context['instanceID'] = uuid.uuid4()
+        context['instanceID'] = u"uuid:{}".format(uuid.uuid4())
         context['question_answer'] = qa
         xml = render_to_string('section.xml', context).strip()
         xml = re.sub(ur">\s+<", u"><", smart_unicode(xml))
