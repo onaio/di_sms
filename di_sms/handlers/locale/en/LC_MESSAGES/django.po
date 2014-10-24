@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-24 11:40+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: help.py:12
+msgid "Help! Expected commands are #1 answer1 #2 answer2 ..."
+msgstr ""
+
+#: question.py:39
+msgid "You responded to question(s): {}."
+msgstr ""
+
+#: question.py:71
+msgid "Unknown question number {}."
+msgstr ""
+
+#: question.py:76
+msgid "Invalid answer {}, expecting Y or N."
+msgstr ""
+
+#: question.py:86
+msgid "{} is not a number."
+msgstr ""
+
+#: question.py:92
+msgid "Unknown question {}."
+msgstr ""
+
+#: question.py:151
+msgid "{} is missing question(s): {}."
+msgstr ""

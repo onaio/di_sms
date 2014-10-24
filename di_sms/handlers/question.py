@@ -36,7 +36,7 @@ class QuestionHandler(PrefixHandler):
             self._make_ona_submission(qa)
 
             self.respond(
-                _(u"Vous avez répondu à la/les question(s): {}.").format(
+                _(u"You responded to question(s): {}.").format(
                     u','.join(responses))
             )
         else:
@@ -68,12 +68,12 @@ class QuestionHandler(PrefixHandler):
                 question = Question.objects.get(number=question)
             except Question.DoesNotExist:
                 raise ValueError(
-                    _(u"Inconnu numéro de la question {}.").format(question))
+                    _(u"Unknown question number {}.").format(question))
             else:
                 if question.question_type == Question.YES_NO:
                     if not YES_NO_REGEX.match(answer):
                         raise ValueError(
-                            _(u"Inconnu numéro de la answer {}.")
+                            _(u"Invalid answer {}, expecting Y or N.")
                             .format(answer))
 
                     if YES_REGEX.match(answer):
@@ -89,7 +89,7 @@ class QuestionHandler(PrefixHandler):
                 return question, answer
 
         raise HandlerError(
-            _(u"Inconnu numéro de la question {}.").format(text))
+            _(u"Unknown question {}.").format(text))
 
     def _save_answer(self, question, answer):
         if not self.msg.connections:
