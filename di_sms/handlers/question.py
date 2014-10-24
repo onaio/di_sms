@@ -108,7 +108,7 @@ class QuestionHandler(PrefixHandler):
         qa = answers_qs.values_list('question__number', 'answer')
         context['section'] = section_name
         context['today'] = unicode(answers_qs[0].date_created.date())
-        context['instanceID'] = uuid.uuid4()
+        context['instanceID'] = u"uuid:{}".format(uuid.uuid4())
         context['question_answer'] = qa
         xml = render_to_string('section.xml', context).strip()
         xml = re.sub(ur">\s+<", u"><", smart_unicode(xml))
