@@ -17,6 +17,7 @@ from di_sms.main.utils import make_ona_submission
 
 YES_NO_REGEX = re.compile('([ynYN])', re.IGNORECASE)
 YES_REGEX = re.compile('([yY])', re.IGNORECASE)
+NUMBER_REGEX = re.compile('(^[0-9]+(\.[0-9]+)*)')
 
 
 class QuestionHandler(PrefixHandler):
@@ -60,7 +61,7 @@ class QuestionHandler(PrefixHandler):
         match = re.match(qa_regex, text)
 
         if match:
-            answer = match.groupdict()['answer']
+            answer = match.groupdict()['answer'].strip()
             question = match.groupdict()['number']
 
             try:
@@ -79,6 +80,11 @@ class QuestionHandler(PrefixHandler):
                         answer = Question.YES
                     else:
                         answer = Question.NO
+
+                if question.question_type == Question.NUMBER:
+                    if not NUMBER_REGEX.match(answer):
+                        raise ValueError(_(u"{} is not a number.")
+                                         .format(answer))
 
                 return question, answer
 
