@@ -56,7 +56,7 @@ class QuestionHandler(PrefixHandler):
 
     @classmethod
     def _question_answer(cls, text):
-        pattern = r'(?P<number>\d+)\s(?P<answer>\w+)'
+        pattern = r'(?P<number>\d+)\s*(?P<answer>\w+)'
         qa_regex = re.compile(pattern, re.IGNORECASE)
         match = re.match(qa_regex, text)
 
