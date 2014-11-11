@@ -8,7 +8,7 @@ from rapidsms.contrib.handlers.exceptions import HandlerError
 
 class PrefixHandler(BaseHandler):
     prefix = None
-    pattern = r'%(prefix)s\s?(\w+.*?)(?=\s*%(prefix)s|$)'
+    pattern = r'%(prefix)s?\s*(\d+\s*[a-zA-Z]+)(?=\s*[0-9%(prefix)s]+|$)'
 
     def handle(self, answers):
         raise NotImplementedError

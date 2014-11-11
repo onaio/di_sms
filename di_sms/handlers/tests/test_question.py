@@ -70,7 +70,7 @@ class TestQuestionHandler(RapidTest):
         self.assertEqual(msg.responses[0]['text'], response)
         self.assertEqual(count + 3, Answer.objects.count())
 
-    def test_dispatch_question_no_space(self):
+    def test_dispatch_question_one_space(self):
         count = Answer.objects.count()
         self._load_questions_fixture()
         response0 = u'opening1 is missing question(s): 2,3.'
@@ -106,6 +106,132 @@ class TestQuestionHandler(RapidTest):
 
         response = u'Unknown question number 34.'
         msg = IncomingMessage(self.connections, "#1y #34n")
+        retVal = QuestionHandler.dispatch(self.router, msg)
+        self.assertTrue(retVal)
+        self.assertEqual(len(msg.responses), 1)
+        self.assertEqual(msg.responses[0]['text'], response)
+        self.assertEqual(count + 3, Answer.objects.count())
+
+    def test_dispatch_question_no_space(self):
+        count = Answer.objects.count()
+        self._load_questions_fixture()
+        response0 = u'opening1 is missing question(s): 2,3.'
+        response1 = u'You responded to question(s): 1.'
+        msg = IncomingMessage(self.connections, "#1y")
+        retVal = QuestionHandler.dispatch(self.router, msg)
+        self.assertTrue(retVal)
+        self.assertEqual(len(msg.responses), 2)
+        self.assertEqual(msg.responses[0]['text'], response0)
+        self.assertEqual(msg.responses[1]['text'], response1)
+        self.assertEqual(count + 1, Answer.objects.count())
+        self.assertEqual(Answer.objects.all()[0].answer, Question.YES)
+
+        response0 = u'opening1 is missing question(s): 2.'
+        response1 = u'You responded to question(s): 1,3.'
+        msg = IncomingMessage(self.connections, "#1y#3n")
+        retVal = QuestionHandler.dispatch(self.router, msg)
+        self.assertTrue(retVal)
+        self.assertEqual(len(msg.responses), 2)
+        self.assertEqual(msg.responses[0]['text'], response0)
+        self.assertEqual(msg.responses[1]['text'], response1)
+        self.assertEqual(count + 2, Answer.objects.count())
+        self.assertEqual(Answer.objects.all()[1].answer, u'no')
+
+        response = u'You responded to question(s): 1,2,3.'
+        msg = IncomingMessage(self.connections, "#1y#2n#3n")
+        retVal = QuestionHandler.dispatch(self.router, msg)
+        self.assertTrue(retVal)
+        self.assertEqual(len(msg.responses), 1)
+        self.assertEqual(msg.responses[0]['text'], response)
+        self.assertEqual(count + 3, Answer.objects.count())
+        self.assertEqual(Answer.objects.all()[2].answer, Question.NO)
+
+        response = u'Unknown question number 34.'
+        msg = IncomingMessage(self.connections, "#1y#34n")
+        retVal = QuestionHandler.dispatch(self.router, msg)
+        self.assertTrue(retVal)
+        self.assertEqual(len(msg.responses), 1)
+        self.assertEqual(msg.responses[0]['text'], response)
+        self.assertEqual(count + 3, Answer.objects.count())
+
+    def test_dispatch_question_no_hash(self):
+        count = Answer.objects.count()
+        self._load_questions_fixture()
+        response0 = u'opening1 is missing question(s): 2,3.'
+        response1 = u'You responded to question(s): 1.'
+        msg = IncomingMessage(self.connections, "1y")
+        retVal = QuestionHandler.dispatch(self.router, msg)
+        self.assertTrue(retVal)
+        self.assertEqual(len(msg.responses), 2)
+        self.assertEqual(msg.responses[0]['text'], response0)
+        self.assertEqual(msg.responses[1]['text'], response1)
+        self.assertEqual(count + 1, Answer.objects.count())
+        self.assertEqual(Answer.objects.all()[0].answer, Question.YES)
+
+        response0 = u'opening1 is missing question(s): 2.'
+        response1 = u'You responded to question(s): 1,3.'
+        msg = IncomingMessage(self.connections, "1y 3n")
+        retVal = QuestionHandler.dispatch(self.router, msg)
+        self.assertTrue(retVal)
+        self.assertEqual(len(msg.responses), 2)
+        self.assertEqual(msg.responses[0]['text'], response0)
+        self.assertEqual(msg.responses[1]['text'], response1)
+        self.assertEqual(count + 2, Answer.objects.count())
+        self.assertEqual(Answer.objects.all()[1].answer, u'no')
+
+        response = u'You responded to question(s): 1,2,3.'
+        msg = IncomingMessage(self.connections, "1y 2n 3n")
+        retVal = QuestionHandler.dispatch(self.router, msg)
+        self.assertTrue(retVal)
+        self.assertEqual(len(msg.responses), 1)
+        self.assertEqual(msg.responses[0]['text'], response)
+        self.assertEqual(count + 3, Answer.objects.count())
+        self.assertEqual(Answer.objects.all()[2].answer, Question.NO)
+
+        response = u'Unknown question number 34.'
+        msg = IncomingMessage(self.connections, "#1y #34n")
+        retVal = QuestionHandler.dispatch(self.router, msg)
+        self.assertTrue(retVal)
+        self.assertEqual(len(msg.responses), 1)
+        self.assertEqual(msg.responses[0]['text'], response)
+        self.assertEqual(count + 3, Answer.objects.count())
+
+    def test_dispatch_question_no_hash_no_space(self):
+        count = Answer.objects.count()
+        self._load_questions_fixture()
+        response0 = u'opening1 is missing question(s): 2,3.'
+        response1 = u'You responded to question(s): 1.'
+        msg = IncomingMessage(self.connections, "1y")
+        retVal = QuestionHandler.dispatch(self.router, msg)
+        self.assertTrue(retVal)
+        self.assertEqual(len(msg.responses), 2)
+        self.assertEqual(msg.responses[0]['text'], response0)
+        self.assertEqual(msg.responses[1]['text'], response1)
+        self.assertEqual(count + 1, Answer.objects.count())
+        self.assertEqual(Answer.objects.all()[0].answer, Question.YES)
+
+        response0 = u'opening1 is missing question(s): 2.'
+        response1 = u'You responded to question(s): 1,3.'
+        msg = IncomingMessage(self.connections, "1y3n")
+        retVal = QuestionHandler.dispatch(self.router, msg)
+        self.assertTrue(retVal)
+        self.assertEqual(len(msg.responses), 2)
+        self.assertEqual(msg.responses[0]['text'], response0)
+        self.assertEqual(msg.responses[1]['text'], response1)
+        self.assertEqual(count + 2, Answer.objects.count())
+        self.assertEqual(Answer.objects.all()[1].answer, u'no')
+
+        response = u'You responded to question(s): 1,2,3.'
+        msg = IncomingMessage(self.connections, "1y2n3n")
+        retVal = QuestionHandler.dispatch(self.router, msg)
+        self.assertTrue(retVal)
+        self.assertEqual(len(msg.responses), 1)
+        self.assertEqual(msg.responses[0]['text'], response)
+        self.assertEqual(count + 3, Answer.objects.count())
+        self.assertEqual(Answer.objects.all()[2].answer, Question.NO)
+
+        response = u'Unknown question number 34.'
+        msg = IncomingMessage(self.connections, "1y34n")
         retVal = QuestionHandler.dispatch(self.router, msg)
         self.assertTrue(retVal)
         self.assertEqual(len(msg.responses), 1)
