@@ -4,7 +4,6 @@ from rapidsms.backends.http.forms import BaseHttpForm
 
 
 class SmsSyncForm(BaseHttpForm):
-    sent_to = forms.CharField()
 
     def __init__(self, *args, **kwargs):
         """
@@ -14,9 +13,11 @@ class SmsSyncForm(BaseHttpForm):
         # defaults to "text" and "identity"
         self.text_name = kwargs.pop('text_name', 'text')
         self.identity_name = kwargs.pop('identity_name', 'identity')
+        self.device_identity = kwargs.pop('device_identity', 'device_id')
         super(SmsSyncForm, self).__init__(*args, **kwargs)
         self.fields[self.text_name] = forms.CharField()
-        self.fields[self.sent_to_name] = forms.CharField()
+        self.fields[self.identity_name] = forms.CharField()
+        self.fields[self.device_identity] = forms.CharField()
 
     def get_incoming_data(self):
         """
