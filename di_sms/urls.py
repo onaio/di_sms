@@ -23,6 +23,7 @@ urlpatterns = patterns(
     (r'^selectable/', include('selectable.urls')),
 
     # di_sms urls
-    (r'^backend/smssync/$',
-     SmsSyncBackendView.as_view(backend_name='smssync')),
+    url(r'^backend/smssync/$',
+        SmsSyncBackendView.as_view(backend_name='smssync'),
+        name='smssync-backend'),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
