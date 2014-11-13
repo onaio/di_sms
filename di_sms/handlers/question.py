@@ -25,6 +25,7 @@ class QuestionHandler(PrefixHandler):
 
     def handle(self, answers):
         self.phone_number = self.msg.connections[0].identity
+        self.device_id = self.msg.fields.get('device_id')
 
         if self._valid_questions(answers):
             responses = []
