@@ -13,7 +13,7 @@ from di_sms.main.forms import SmsSyncForm
 class SmsSyncBackendView(GenericHttpBackendView):
     params = {
         'identity_name': 'from',
-        'sent_to_name': 'sent_to',
+        'device_identity': 'device_id',
         'text_name': 'message'
     }
 
