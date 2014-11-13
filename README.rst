@@ -47,9 +47,9 @@ SMSSync Setup
 - Install SMSSync_.
 - Add ``Sync URL`` as ``http://server_url/backend/smssync/``, do not forget to
   include the trailing ``/``.
-- Add ``secret key`` as ``ona``.
+- Add ``secret key`` as ``ona``,
+- Add a ``device id`` to identify the zone that this phone will receive messages for.
 - Tap ``OK`` to save the entry
 - ``Enable Task Checking`` and set ``Frequency`` in settings
-
 
 .. _SMSSync: http://smssync.ushahidi.com
