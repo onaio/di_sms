@@ -15,7 +15,7 @@ urlpatterns = patterns(
     url(r'^$', 'rapidsms.views.dashboard', name='rapidsms-dashboard'),
     # RapidSMS contrib app URLs
     (r'^httptester/', include('rapidsms.contrib.httptester.urls')),
-    (r'^messagelog/', include('rapidsms.contrib.messagelog.urls')),
+    (r'^messagelog/', include('di_sms.messagelog.urls')),
     (r'^messaging/', include('rapidsms.contrib.messaging.urls')),
     (r'^registration/', include('rapidsms.contrib.registration.urls')),
 
