@@ -5,6 +5,7 @@ from django.conf.urls import patterns, url
 from . import views
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', views.message_log, name="message_log"),
 )
