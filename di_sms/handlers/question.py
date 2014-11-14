@@ -139,7 +139,8 @@ class QuestionHandler(PrefixHandler):
         sections = answer_qs.values_list('question__section',
                                          'question__section__name').distinct()
         context = {
-            "phone_number": self.phone_number
+            "phone_number": self.phone_number,
+            "device_id": self.device_id
         }
         url = settings.ONA_SUBMISSION_URL
 
