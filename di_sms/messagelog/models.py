@@ -19,7 +19,7 @@ class Message(models.Model):
     direction = models.CharField(max_length=1, choices=DIRECTION_CHOICES)
     date = models.DateTimeField()
     text = models.TextField()
-    device_id = models.TextField()
+    device_id = models.TextField(default=None, null=True)
     relayed = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
