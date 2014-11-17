@@ -1,0 +1,31 @@
+# Using ansible playbooks
+ssh ubuntu@ah-eu-west.onalabs.org
+sudo su - devops
+workon playbooks
+ansible-playbook -i inventory/eu-west-1_di-sms.ini di_sms.yaml -vvvv --extra-vars="git_branch=add-sent-to"
+
+# Setup
+git clone git@github.com:onaio/di_sms.git
+cd di_sms
+python manage.py syncdb
+python manage.py migrate
+python manage.py collectstatic
+python manage.py runserver
+
+# Directly on di-sms.ona.io
+ssh ubuntu@di-sms.ona.io
+sudo -s
+cd /home/di_sms/app-versioned
+source /home/di_sms/di_sms-venv/bin/activate
+export TIMESTAMP=`date "+%s"`
+sudo git clone git@github.com:onaio/di_sms.git $TIMESTAMP
+cd $TIMESTAMP
+cp /home/di_sms/app/di_sms/local_settings.py di_sms
+python manage.py syncdb --settings=di_sms.local_settings
+python manage.py migrate --settings=di_sms.local_settings
+python manage.py collectstatic --settings=di_sms.local_settings
+chown -R di_sms /home/di_sms/app-versioned/$TIMESTAMP
+unlink /home/di_sms/app
+ln -s /home/di_sms/app-versioned/$TIMESTAMP /home/di_sms/app
+restart di_sms
+service nginx restart
