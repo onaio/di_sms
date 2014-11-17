@@ -18,6 +18,7 @@ class MessageLogApp(AppBase):
             text=text,
             contact=msg.connections[0].contact,
             connection=msg.connections[0],
+            device_id=msg.fields.get('device_id')
         )
 
     def parse(self, msg):
