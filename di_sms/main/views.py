@@ -7,12 +7,18 @@ from rapidsms.backends.database.models import BackendMessage
 from rapidsms.backends.database.models import OUTGOING
 from rapidsms.backends.http.views import GenericHttpBackendView
 
+from di_sms.main.forms import SmsSyncForm
+
 
 class SmsSyncBackendView(GenericHttpBackendView):
     params = {
         'identity_name': 'from',
+        'device_identity': 'device_id',
         'text_name': 'message'
     }
+
+    # Form to validate that received parameters match defined ``params``.
+    form_class = SmsSyncForm
 
     def form_valid(self, form):
         super(SmsSyncBackendView, self).form_valid(form)

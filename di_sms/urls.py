@@ -15,7 +15,7 @@ urlpatterns = patterns(
     url(r'^$', 'rapidsms.views.dashboard', name='rapidsms-dashboard'),
     # RapidSMS contrib app URLs
     (r'^httptester/', include('rapidsms.contrib.httptester.urls')),
-    (r'^messagelog/', include('rapidsms.contrib.messagelog.urls')),
+    (r'^messagelog/', include('di_sms.messagelog.urls')),
     (r'^messaging/', include('rapidsms.contrib.messaging.urls')),
     (r'^registration/', include('rapidsms.contrib.registration.urls')),
 
@@ -23,6 +23,7 @@ urlpatterns = patterns(
     (r'^selectable/', include('selectable.urls')),
 
     # di_sms urls
-    (r'^backend/smssync/$',
-     SmsSyncBackendView.as_view(backend_name='smssync')),
+    url(r'^backend/smssync/$',
+        SmsSyncBackendView.as_view(backend_name='smssync'),
+        name='smssync-backend'),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
