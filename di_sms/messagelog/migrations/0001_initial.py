@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('rapidsms', '0001_initial'),
+        ('rapidsms', '__first__'),
     ]
 
     operations = [
@@ -18,6 +18,8 @@ class Migration(migrations.Migration):
                 ('direction', models.CharField(max_length=1, choices=[(b'I', b'Incoming'), (b'O', b'Outgoing')])),
                 ('date', models.DateTimeField()),
                 ('text', models.TextField()),
+                ('device_id', models.TextField()),
+                ('relayed', models.BooleanField(default=False)),
                 ('connection', models.ForeignKey(blank=True, to='rapidsms.Connection', null=True)),
                 ('contact', models.ForeignKey(blank=True, to='rapidsms.Contact', null=True)),
             ],
